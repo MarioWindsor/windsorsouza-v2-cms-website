@@ -1,0 +1,60 @@
+<style>
+	.project {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: calc(var(--view-height) - var(--space-100));
+		align-item: flex-start;
+	}
+	.project .info {
+		width: 100%;
+	}
+	.project .info .title {
+		font-size: calc((var(--view-width) - var(--space-100)) * 0.075);
+	}
+	.project .mockup {
+		width: 100%;
+		align-self: flex-end;
+	}
+
+	@media( min-width: 640px )  {
+		.project .info {
+			width: 75%;
+		}
+		.project .info .title {
+			font-size: calc((var(--view-width) - var(--space-100)) * 0.05);
+		}
+		.project .mockup {
+			width: 75%;
+		}
+	}
+	@media( min-width: 1040px ) {
+		.project {
+			display: flex;
+			flex-direction: row;
+		}
+		.project .info {
+			width: 50%;
+		}
+		.project .info .title {
+			font-size: calc((var(--view-width) - var(--space-100)) * 0.0375);
+		}
+		.project .mockup {
+			width: 50%;
+/*			align-self: flex-end;*/
+		}
+	}
+	@media( min-width: 1480px ) {}
+</style>
+<!-- Each Project -->
+<div class="row space-50-left-right space-25-top-bottom">
+	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/velvesto-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="title strong font-h">Inception of a Brand: Automotive Detailing Products</div>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/velvesto-mockup-label.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->

@@ -1,0 +1,24 @@
+/*
+ * Header Section
+ */
+
+.header-section {}
+
+@media( min-width: 640px )  {
+	.header-section .logo {
+		padding-right: var(--space-100);
+	}
+	.header-section .menu .link {
+		padding: var(--space-min);
+		margin-left: var(--space-min);
+	}
+}
+@media( min-width: 1040px ) {
+	.header-section .logo {
+		padding-right: var(--space-250);
+	}
+	.header-section .menu .link {
+		font-size: var(--p);
+	}
+}
+@media( min-width: 1480px ) {}
