@@ -119,28 +119,41 @@
 
 <!--  ★  MARKUP GOES HERE  ★  -->
 
-<div id="page-wrapper"><!-- Page Wrapper -->
+<div id="page-wrapper" class="fill-dark-gradient bg-fixed"><!-- Page Wrapper -->
 
 
 
 	<!-- Header & Navigation -->
-	<!-- Header Section -->
-<section id="header-section" class="hidden header-section fill-white box-shadow-violet position-relative" style="z-index: 2;">
-	<div class="container">
-		<div class="row">
-			<div class="columns small-11 medium-5 large-4 inline-middle">
-				<a class="logo block space-100-top-bottom space-50-right" href="/">
-					<img class="block no-pointer" src="/media/logo-color.svg" alt="WindsorSouza Logo">
-				</a>
-			</div>
-			<div class="menu columns small-12 medium-7 large-8 inline-middle text-right hide-small text-violet">
-				<a class="link label text-uppercase strong inline" href="/">Stories</a>
-				<a class="link label text-uppercase strong inline" href="/about">About</a>
-				<a class="link label text-uppercase strong inline" href="/for-homeowner">Homeowner</a>
-				<a class="link label text-uppercase strong inline" href="/for-business">Business</a>
-				<a class="link label text-uppercase strong inline" href="/for-student">Student</a>
-			</div>
-		</div>
+	<style>
+	.header-section {}
+	.header-section .menu {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		backdrop-filter: blur(7px);
+		-webkit-backdrop-filter: blur(7px);
+		background: rgba(255, 255, 255, 0.666);
+		box-shadow: 0 0 3px 1px rgba(0, 120, 255, 0.35),  0 0 9px 3px rgba(180, 50, 255, 0.25);
+	}
+
+	.header-section .navigation .link { line-height: 1; }
+</style>
+<!-- Header Section -->
+<section id="header-section" class="header-section space-150-left-right space-50-top-bottom position-sticky" style="z-index: 9; top: 0; left: 0;">
+	<div class="menu radius-75 fill-light space-75">
+		<span class="logo" style="font-size: 0;">
+			<a class="inline" href="/" style="font-size: 0; width: calc(var(--space-100) * 5);">
+				<img class="block no-pointer" src="media/logo-full-black.png" alt="WindsorSouza Logo">
+			</a>
+		</span>
+		<span class="navigation hide-small hide-medium">
+			<a class="link p text-uppercase inline space-50" href="/">Projects (All)</a>
+			<a class="link p text-uppercase inline space-50" href="/">About</a>
+			<a class="link p text-uppercase inline space-50" href="/">Careers</a>
+			<a class="link p text-uppercase inline space-50" href="/">Services</a>
+			<a class="link p text-uppercase inline space-50 fill-gradient text-white radius-25" href="/" style="margin-left: var(--space-50);"><span class="material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;`">perm_phone_msg</span> +91 89716 83598</a>
+		</span>
 	</div>
 </section>
 <!-- END: Header Section -->
@@ -156,23 +169,101 @@
 
 
 
+
+<!-- Intro Section -->
+<section id="intro-section" class="hidden intro-section space-150-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="columns small-12">
+				<div class="h3">Typography:</div>
+				<div class="h1 strong">Lorem ipsum, dolor sit amet consectetur.</div>
+				<div class="h2 strong">Lorem ipsum dolor sit amet consectetur.</div>
+				<div class="h3 strong">Lorem ipsum dolor sit amet consectetur.</div>
+				<div class="h4 strong">Lorem ipsum dolor sit amet consectetur.</div>
+				<div class="h5 strong">Lorem ipsum dolor sit amet consectetur.</div>
+				<div class="h6">Lorem ipsum dolor sit amet consectetur.</div>
+				<div class="p">Lorem ipsum dolor, sit amet consectetur,.</div>
+				<div class="label">Lorem ipsum dolor sit amet consectetur.</div>
+				<div class="small space-25-bottom">Lorem, ipsum dolor sit amet consectetur.</div>
+				<a class="button fill-blue" href="https://google.com">Search</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Intro Section -->
+
+
+
+
+
 <!-- Project Section -->
-<section id="project-section" class="project-section fill-dark-gradient bg-fixed space-25-top-bottom">
+<section id="project-section" class="project-section fill-dark-gradient bg-fixed space-50-top-bottom">
 	<!-- <div class="container"> -->
 		<style>
+	:root {
+		--fluid-box-width: calc(var(--view-width) - var(--space-200));
+		--fluid-box-height: calc(var(--view-height) - var(--space-200));
+		--fem: calc(var(--fluid-box-width) * 0.01);
+	}
+	@media( min-width: 640px )  {
+		:root {
+			--fem: calc(var(--fluid-box-width) * 0.0075);
+		}
+	}
+	@media( min-width: 1040px ) {
+		:root {
+			--fem: calc(var(--fluid-box-width) * 0.005);
+		}
+	}
+	@media( min-width: 1480px ) {}
+
 	.project {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		min-height: calc(var(--view-height) - var(--space-100));
+		min-height: var(--fluid-box-height);
 		align-item: flex-start;
 	}
 	.project .info {
 		width: 100%;
 	}
-	.project .info .title {
-		font-size: calc((var(--view-width) - var(--space-100)) * 0.075);
+	.project .info .client {
+		font-size: calc(var(--fem) * 2.75);
+		padding-bottom: calc(var(--fem) * 1.5);
 	}
+	.project .info .title {
+		font-size: calc(var(--fem) * 7);
+	}
+	.project .info .tags {
+		padding-top: calc(var(--fem) * 3);
+		font-size: 0;
+	}
+
+	.project.fill-light .info .tag {
+		color: var(--light);
+		background-color: var(--dark);
+	}
+	.project.fill-dark .info .tag {
+		color: var(--dark);
+		background-color: var(--light);
+	}
+	.project .info .tags .tag {
+		line-height: 2;
+		font-size: calc(var(--fem) * 2.75);
+		padding: 0 calc(var(--fem) * 2);
+		padding-top: calc(var(--fem) * 0.75);
+		margin-right: calc(var(--fem) * 1.5);
+		margin-bottom: calc(var(--fem) * 1.5);
+		border-radius: calc(var(--fem) * 1);
+		cursor: pointer;
+	}
+
+	.project .info .tags .tag:hover { filter: invert(100%); }
+
+	.project .info .cta {
+
+	}
+	
 	.project .mockup {
 		width: 100%;
 		align-self: flex-end;
@@ -181,9 +272,6 @@
 	@media( min-width: 640px )  {
 		.project .info {
 			width: 75%;
-		}
-		.project .info .title {
-			font-size: calc((var(--view-width) - var(--space-100)) * 0.05);
 		}
 		.project .mockup {
 			width: 75%;
@@ -197,144 +285,150 @@
 		.project .info {
 			width: 50%;
 		}
-		.project .info .title {
-			font-size: calc((var(--view-width) - var(--space-100)) * 0.0375);
-		}
 		.project .mockup {
 			width: 50%;
-/*			align-self: flex-end;*/
 		}
 	}
 	@media( min-width: 1480px ) {}
 </style>
 <!-- Each Project -->
-<div class="row space-50-left-right space-25-top-bottom">
+<div class="row space-100-left-right space-50-top-bottom">
 	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/velvesto-bg.svg');">
 		<div class="info space-150 float-left">
+			<div class="client">Velvesto</div>
 			<div class="title strong font-h">Inception of a Brand: Automotive Detailing Products</div>
+			<div class="tags">
+				<div class="tag inline">Brand Naming</div>
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Brand Identity</div>
+				<div class="tag inline">Package Design</div>
+				<div class="tag inline">Merchandise</div>
+				<div class="tag inline">Product Display</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
 		</div>
 		<div class="mockup space-150 float-right">
-			<img class="block" src="media/projects/velvesto-mockup-label.png" alt="">
+			<img class="block" src="media/projects/velvesto-mockup.png" alt="">
 		</div>
 	</div>
 </div>
 <!-- End: Each Project -->
-		<style>
-	.project {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		min-height: calc(var(--view-height) - var(--space-100));
-		align-item: flex-start;
-	}
-	.project .info {
-		width: 100%;
-	}
-	.project .info .title {
-		font-size: calc((var(--view-width) - var(--space-100)) * 0.075);
-	}
-	.project .mockup {
-		width: 100%;
-		align-self: flex-end;
-	}
-
-	@media( min-width: 640px )  {
-		.project .info {
-			width: 75%;
-		}
-		.project .info .title {
-			font-size: calc((var(--view-width) - var(--space-100)) * 0.05);
-		}
-		.project .mockup {
-			width: 75%;
-		}
-	}
-	@media( min-width: 1040px ) {
-		.project {
-			display: flex;
-			flex-direction: row;
-		}
-		.project .info {
-			width: 50%;
-		}
-		.project .info .title {
-			font-size: calc((var(--view-width) - var(--space-100)) * 0.0375);
-		}
-		.project .mockup {
-			width: 50%;
-/*			align-self: flex-end;*/
-		}
-	}
-	@media( min-width: 1480px ) {}
-</style>
 <!-- Each Project -->
-<div class="row space-50-left-right space-25-top-bottom">
-	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/velvesto-bg.svg');">
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-light radius-100 img-cover" style="background-image: url('media/projects/bgc-bg.svg');">
 		<div class="info space-150 float-left">
-			<div class="title strong font-h">Inception of a Brand: Automotive Detailing Products</div>
+			<div class="client">Bharat Glass &amp; Crockeries</div>
+			<div class="title strong font-h">B2B Digital Transformation & Branding</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">SEO</div>
+				<div class="tag inline">Brand Identity</div>
+				<div class="tag inline">Brand Collateral</div>
+				<div class="tag inline">Corporate Film</div>
+				<div class="tag inline">Signage</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
 		</div>
 		<div class="mockup space-150 float-right">
-			<img class="block" src="media/projects/velvesto-mockup-label.png" alt="">
+			<img class="block" src="media/projects/bgc-mockup.png" alt="">
 		</div>
 	</div>
 </div>
 <!-- End: Each Project -->
-		<style>
-	.project {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		min-height: calc(var(--view-height) - var(--space-100));
-		align-item: flex-start;
-	}
-	.project .info {
-		width: 100%;
-	}
-	.project .info .title {
-		font-size: calc((var(--view-width) - var(--space-100)) * 0.075);
-	}
-	.project .mockup {
-		width: 100%;
-		align-self: flex-end;
-	}
-
-	@media( min-width: 640px )  {
-		.project .info {
-			width: 75%;
-		}
-		.project .info .title {
-			font-size: calc((var(--view-width) - var(--space-100)) * 0.05);
-		}
-		.project .mockup {
-			width: 75%;
-		}
-	}
-	@media( min-width: 1040px ) {
-		.project {
-			display: flex;
-			flex-direction: row;
-		}
-		.project .info {
-			width: 50%;
-		}
-		.project .info .title {
-			font-size: calc((var(--view-width) - var(--space-100)) * 0.0375);
-		}
-		.project .mockup {
-			width: 50%;
-/*			align-self: flex-end;*/
-		}
-	}
-	@media( min-width: 1480px ) {}
-</style>
 <!-- Each Project -->
-<div class="row space-50-left-right space-25-top-bottom">
-	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/velvesto-bg.svg');">
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/ecoline-bg.svg');">
 		<div class="info space-150 float-left">
-			<div class="title strong font-h">Inception of a Brand: Automotive Detailing Products</div>
+			<div class="client">Ecoline Clothing</div>
+			<div class="title strong font-h">Brand Positioning: From Plastic Waste to Sustainable Apparel</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Brand Identity</div>
+				<div class="tag inline">Brand Positioning</div>
+				<div class="tag inline">Package Design</div>
+				<div class="tag inline">Merchandise</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
 		</div>
 		<div class="mockup space-150 float-right">
-			<img class="block" src="media/projects/velvesto-mockup-label.png" alt="">
+			<img class="block" src="media/projects/ecoline-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-light radius-100 img-cover" style="background-image: url('media/projects/dairy-house-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Dairy House</div>
+			<div class="title strong font-h">Illustrations and Packaging Design for an Ice Cream Brand</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Brand Identity</div>
+				<div class="tag inline">Package Design</div>
+				<div class="tag inline">Brand Collateral</div>
+				<div class="tag inline">Product Display</div>
+				<div class="tag inline">Store Branding</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/dairy-house-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/easeglobal-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Easeglobal</div>
+			<div class="title strong font-h">Lead Capture for Global Immigration & Business Registration</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">SEO</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/easeglobal-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-light radius-100 img-cover" style="background-image: url('media/projects/bursar-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Bursar</div>
+			<div class="title strong font-h">Study Now Pay Later: Easy Education Loans with PWA solutions</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">UX Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">API Integration</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/bursar-mockup.png" alt="">
 		</div>
 	</div>
 </div>
@@ -362,40 +456,92 @@
 
 
 	<!-- Footer -->
-	<!-- Footer Menu Section -->
-<section id="footer-menu-section" class="footer-menu-section fill-white">
+	<style>
+	.footer-menu-section {}
+
+	@media( max-width: 639px )  {
+		.footer-menu-section .title .long-word {
+			word-break: break-all;
+			hyphens: manual;
+		}
+	}
+</style>
+
+<!-- Footer Menu Section -->
+<section id="footer-menu-section" class="footer-menu-section space-200-top-bottom">
 	<div class="container">
-		<div class="row space-200-top-bottom">
-			<div class="columns small-12 large-7 space-25 space-150-bottom">
-				<div class="logo space-100-bottom" style="width: 75%;">
-					<img src="media/logo-color.svg" alt="" style="transform: scale(1.06);">
+		<div class="row space-150-bottom">
+			<div class="columns small-10 medium-6 large-5">
+				<div class="logo space-50-bottom">
+					<img src="media/logo-full-white.png" alt="">
 				</div>	
-				<div class="h4 strong text-violet font-h">Architecture that Inspires and Endures</div>
-				<div class="p">Rooted in Human-Centric Design, our unique approach combines functionality with timeless beauty!</div>
 			</div>
-			<div class="columns small-12 medium-6 large-4 large-offset-1 space-25 space-100-bottom">
-				<div class="h5 text-neutral-4 block space-50-bottom">Quick Links</div>
-				<a class="text-violet p inline space-25-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Greyscale Stories</a><br>
-				<a class="text-violet p inline space-25-bottom" href="/about"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> About Us</a><br>
-				<a class="text-violet p inline space-25-bottom" href="/for-homeowner"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> For Homeowner</a><br>
-				<a class="text-violet p inline space-25-bottom" href="/for-business"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> For Business</a><br>
-				<a class="text-violet p inline space-25-bottom" href="/for-student"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> For Student</a><br>
+			<div class="columns small-12 large-6 large-offset-1">
+				<!-- <div class="title h2 strong text-gradient font-h">Digital <span class="long-word">Transformation</span> and Growth Marketing Experts!</div> -->
+				<div class="title h3 strong text-gradient font-h">Experts in Digital <span class="long-word">Transformation</span> and Growth Marketing!</div>
+				<div class="description p space-50-top">We are a Branding, Marketing and Advertising Agency, that leverages data-driven decision making to deliver innovative solutions for your business. Our expertise spans across branding, web development, eCommerce, SEO, digital advertising, social media, and video production. We help businesses of all sizes achieve their digital goals by combining creative designs with cutting-edge technology.</div>
 			</div>
-			<div class="columns small-12 medium-6 large-4 space-25 space-100-bottom">
-				<div class="h5 text-neutral-4 block space-50-bottom">Address</div>
-				<div class="block p space-50-bottom">No.9, 39th Cross, 4th 'T' Block,<br>Jayanagar, Bengaluru - 560041.</div>
-				<a class="text-violet p inline" href="https://maps.app.goo.gl/CoMc1wfP6cwJQHXK9" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">pin_drop</span> Open in Google Maps</a><br>
+		</div>
+		<hr class="fill-gradient">
+		<div class="row space-150-top">
+			<div class="columns small-12 medium-6 large-4 space-150-bottom">
+				<div class="h5 text-neutral-5 block space-50-bottom">Location</div>
+				<div class="block p space-50-bottom">No.4, 4th Cross, CRP Layout, Horamavu, Bangalore, KA — 560043, India.</div>
+				<a class="p inline" href="https://maps.app.goo.gl/jprwuP5fVmy4n14k9" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">pin_drop</span> Open in Google Maps</a><br>
 			</div>
-			<div class="columns small-12 medium-6 large-4 space-25 space-100-bottom">
-				<div class="h5 text-neutral-4 block space-50-bottom">Phone</div>
-				<a class="text-violet p inline space-50-bottom" href="tel:+91 8041510310" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">headset_mic</span> +91 8041510310</a><br>
-				<a class="text-violet p inline space-50-bottom" href="tel:+91 9886466930" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">headset_mic</span> +91 9886466930</a><br>
+			<div class="columns small-12 medium-6 large-3 large-offset-2 space-150-bottom">
+				<div class="h5 text-neutral-4 block space-50-bottom">Links</div>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Projects</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> About Us</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Careers</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Services</a><br>
 			</div>
-			<div class="columns small-12 medium-6 large-4 space-25 space-100-bottom">
-				<div class="h5 text-neutral-4 block space-50-bottom">Email</div>
-				<a class="text-violet p inline space-50-bottom" href="mailto:design-consult@greyscale.in" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">inbox</span> design-consult@greyscale.in</a><br>
-				<a class="text-violet p inline space-50-bottom" href="mailto:info@greyscale.in" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">inbox</span> info@greyscale.in</a><br>
-				<a class="text-violet p inline space-50-bottom" href="mailto:withus@greyscale.in" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">inbox</span> withus@greyscale.in</a><br>
+			<div class="columns small-12 medium-6 large-3 space-150-bottom">
+				<div class="h5 text-neutral-4 block space-50-bottom">Connect</div>
+				<a class="p inline space-50-bottom" href="tel:+918971683598" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">headset_mic</span> +91 89716 83598 (Official)</a><br>
+				<a class="p inline space-50-bottom" href="mailto:hello@windsorsouza.com" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">inbox</span> hello@windsorsouza.com</a><br>
+				<a class="p inline space-50-bottom" href="tel:+919986882698" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">headset_mic</span> +91 99868 82698 (Mario)</a><br>
+				<a class="p inline space-50-bottom" href="tel:+917204599816" target="_blank"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">headset_mic</span> +91 72045 99816 (Marian)</a><br>
+			</div>
+			<div class="columns small-12 medium-6 large-3 space-150-bottom">
+				<div class="h5 text-neutral-4 block space-50-bottom">For Design</div>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Logo Design</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Brand Identity Design</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Visiting Cards</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Brochures</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Packaging Design</a><br>
+			</div>
+			<div class="columns small-12 medium-6 large-3 space-150-bottom">
+				<div class="h5 text-neutral-4 block space-50-bottom">For Website</div>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+			</div>
+			<div class="columns small-12 medium-6 large-3 space-150-bottom">
+				<div class="h5 text-neutral-4 block space-50-bottom">For Marketing</div>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+			</div>
+			<div class="columns small-12 medium-6 large-3 space-150-bottom">
+				<div class="h5 text-neutral-4 block space-50-bottom">For Production</div>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
+				<a class="p inline space-50-bottom" href="/"><span class="material-symbols-rounded inline-bottom" style="font-size: var(--h5);">link</span> Links</a><br>
 			</div>
 		</div>
 	</div>
@@ -414,11 +560,11 @@
 		.copyright-section .signature { text-align: left; }
 	}
 </style>
-<section class="copyright-section space-50-top-bottom fill-dark-gradient" id="copyright-section">
+<section class="copyright-section space-50-top-bottom fill-light" id="copyright-section">
 	<div class="container">
 		<div class="row">
 			<div class="columns small-12 large-8 space-25">
-				<div class="p font-h strong">Copyright <span class="h6 inline-middle">&copy;</span> 2025 – WINDSOR SOUZA PVT LTD | All Rights Reserved</div>
+				<div class="p text-gradient font-h strong">Copyright <span class="h6 inline-middle">&copy;</span> 2025 – WINDSOR SOUZA PVT LTD | All Rights Reserved</div>
 			</div>
 			<!-- <div class="signature columns small-12 large-4 space-25">
 				<a href="https://windsorsouza.com?utm_source=client+website" target="_blank" class="p block font-h">Handcrafted with <span class="h6 inline-middle" style="color: darkorange;">&heartsuit;</span> at — <span style="color: darkorange;">WindsorSouza.com</span></a>

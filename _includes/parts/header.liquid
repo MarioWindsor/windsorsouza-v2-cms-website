@@ -1,20 +1,33 @@
+<style>
+	.header-section {}
+	.header-section .menu {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		backdrop-filter: blur(7px);
+		-webkit-backdrop-filter: blur(7px);
+		background: rgba(255, 255, 255, 0.666);
+		box-shadow: 0 0 3px 1px rgba(0, 120, 255, 0.35),  0 0 9px 3px rgba(180, 50, 255, 0.25);
+	}
+
+	.header-section .navigation .link { line-height: 1; }
+</style>
 <!-- Header Section -->
-<section id="header-section" class="hidden header-section fill-white box-shadow-violet position-relative" style="z-index: 2;">
-	<div class="container">
-		<div class="row">
-			<div class="columns small-11 medium-5 large-4 inline-middle">
-				<a class="logo block space-100-top-bottom space-50-right" href="/">
-					<img class="block no-pointer" src="/media/logo-color.svg" alt="WindsorSouza Logo">
-				</a>
-			</div>
-			<div class="menu columns small-12 medium-7 large-8 inline-middle text-right hide-small text-violet">
-				<a class="link label text-uppercase strong inline" href="/">Stories</a>
-				<a class="link label text-uppercase strong inline" href="/about">About</a>
-				<a class="link label text-uppercase strong inline" href="/for-homeowner">Homeowner</a>
-				<a class="link label text-uppercase strong inline" href="/for-business">Business</a>
-				<a class="link label text-uppercase strong inline" href="/for-student">Student</a>
-			</div>
-		</div>
+<section id="header-section" class="header-section space-150-left-right space-50-top-bottom position-sticky" style="z-index: 9; top: 0; left: 0;">
+	<div class="menu radius-75 fill-light space-75">
+		<span class="logo" style="font-size: 0;">
+			<a class="inline" href="/" style="font-size: 0; width: calc(var(--space-100) * 5);">
+				<img class="block no-pointer" src="media/logo-full-black.png" alt="WindsorSouza Logo">
+			</a>
+		</span>
+		<span class="navigation hide-small hide-medium">
+			<a class="link p text-uppercase inline space-50" href="/">Projects (All)</a>
+			<a class="link p text-uppercase inline space-50" href="/">About</a>
+			<a class="link p text-uppercase inline space-50" href="/">Careers</a>
+			<a class="link p text-uppercase inline space-50" href="/">Services</a>
+			<a class="link p text-uppercase inline space-50 fill-gradient text-white radius-25" href="/" style="margin-left: var(--space-50);"><span class="material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;`">perm_phone_msg</span> +91 89716 83598</a>
+		</span>
 	</div>
 </section>
 <!-- END: Header Section -->

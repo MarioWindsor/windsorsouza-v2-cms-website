@@ -1,17 +1,68 @@
 <style>
+	:root {
+		--fluid-box-width: calc(var(--view-width) - var(--space-200));
+		--fluid-box-height: calc(var(--view-height) - var(--space-200));
+		--fem: calc(var(--fluid-box-width) * 0.01);
+	}
+	@media( min-width: 640px )  {
+		:root {
+			--fem: calc(var(--fluid-box-width) * 0.0075);
+		}
+	}
+	@media( min-width: 1040px ) {
+		:root {
+			--fem: calc(var(--fluid-box-width) * 0.005);
+		}
+	}
+	@media( min-width: 1480px ) {}
+
 	.project {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		min-height: calc(var(--view-height) - var(--space-100));
+		min-height: var(--fluid-box-height);
 		align-item: flex-start;
 	}
 	.project .info {
 		width: 100%;
 	}
-	.project .info .title {
-		font-size: calc((var(--view-width) - var(--space-100)) * 0.075);
+	.project .info .client {
+		font-size: calc(var(--fem) * 2.75);
+		padding-bottom: calc(var(--fem) * 1.5);
 	}
+	.project .info .title {
+		font-size: calc(var(--fem) * 7);
+	}
+	.project .info .tags {
+		padding-top: calc(var(--fem) * 3);
+		font-size: 0;
+	}
+
+	.project.fill-light .info .tag {
+		color: var(--light);
+		background-color: var(--dark);
+	}
+	.project.fill-dark .info .tag {
+		color: var(--dark);
+		background-color: var(--light);
+	}
+	.project .info .tags .tag {
+		line-height: 2;
+		font-size: calc(var(--fem) * 2.75);
+		padding: 0 calc(var(--fem) * 2);
+		padding-top: calc(var(--fem) * 0.75);
+		margin-right: calc(var(--fem) * 1.5);
+		margin-bottom: calc(var(--fem) * 1.5);
+		border-radius: calc(var(--fem) * 1);
+		cursor: pointer;
+	}
+
+	.project .info .tags .tag:hover { filter: invert(100%); }
+
+	.project .info .cta {
+
+	}
+	
 	.project .mockup {
 		width: 100%;
 		align-self: flex-end;
@@ -20,9 +71,6 @@
 	@media( min-width: 640px )  {
 		.project .info {
 			width: 75%;
-		}
-		.project .info .title {
-			font-size: calc((var(--view-width) - var(--space-100)) * 0.05);
 		}
 		.project .mockup {
 			width: 75%;
@@ -36,24 +84,150 @@
 		.project .info {
 			width: 50%;
 		}
-		.project .info .title {
-			font-size: calc((var(--view-width) - var(--space-100)) * 0.0375);
-		}
 		.project .mockup {
 			width: 50%;
-/*			align-self: flex-end;*/
 		}
 	}
 	@media( min-width: 1480px ) {}
 </style>
 <!-- Each Project -->
-<div class="row space-50-left-right space-25-top-bottom">
+<div class="row space-100-left-right space-50-top-bottom">
 	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/velvesto-bg.svg');">
 		<div class="info space-150 float-left">
+			<div class="client">Velvesto</div>
 			<div class="title strong font-h">Inception of a Brand: Automotive Detailing Products</div>
+			<div class="tags">
+				<div class="tag inline">Brand Naming</div>
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Brand Identity</div>
+				<div class="tag inline">Package Design</div>
+				<div class="tag inline">Merchandise</div>
+				<div class="tag inline">Product Display</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
 		</div>
 		<div class="mockup space-150 float-right">
-			<img class="block" src="media/projects/velvesto-mockup-label.png" alt="">
+			<img class="block" src="media/projects/velvesto-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-light radius-100 img-cover" style="background-image: url('media/projects/bgc-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Bharat Glass &amp; Crockeries</div>
+			<div class="title strong font-h">B2B Digital Transformation & Branding</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">SEO</div>
+				<div class="tag inline">Brand Identity</div>
+				<div class="tag inline">Brand Collateral</div>
+				<div class="tag inline">Corporate Film</div>
+				<div class="tag inline">Signage</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/bgc-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/ecoline-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Ecoline Clothing</div>
+			<div class="title strong font-h">Brand Positioning: From Plastic Waste to Sustainable Apparel</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Brand Identity</div>
+				<div class="tag inline">Brand Positioning</div>
+				<div class="tag inline">Package Design</div>
+				<div class="tag inline">Merchandise</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/ecoline-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-light radius-100 img-cover" style="background-image: url('media/projects/dairy-house-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Dairy House</div>
+			<div class="title strong font-h">Illustrations and Packaging Design for an Ice Cream Brand</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Brand Identity</div>
+				<div class="tag inline">Package Design</div>
+				<div class="tag inline">Brand Collateral</div>
+				<div class="tag inline">Product Display</div>
+				<div class="tag inline">Store Branding</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/dairy-house-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/easeglobal-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Easeglobal</div>
+			<div class="title strong font-h">Lead Capture for Global Immigration & Business Registration</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">SEO</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/easeglobal-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-light radius-100 img-cover" style="background-image: url('media/projects/bursar-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Bursar</div>
+			<div class="title strong font-h">Study Now Pay Later: Easy Education Loans with PWA solutions</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">UX Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">API Integration</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More</span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/bursar-mockup.png" alt="">
 		</div>
 	</div>
 </div>

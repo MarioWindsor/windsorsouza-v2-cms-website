@@ -57,10 +57,17 @@
 	--pink: #FF2896;
 	--red: #FF194B;
 	--red-light: #CFA3BD;
-	--yellow: #FFEB3B;
+/*	--yellow: #FFEB3B;*/
+	--yellow: #FFD369;
 	--yellow-light: #FDE9DC;
-	--green: #1FCD46;
-	--blue: #2971FF;
+/*	--green: #1FCD46;*/
+	--green: #24E41E;
+/*	--blue: #2971FF;*/
+/*	--blue: #006BFF;*/
+	--blue: #0066FF;
+
+	--sk-blue: #0071e3;
+	--sk-red: #e30000;
 
 	--container-width: 300px;
 	--card: var(--container-width);
@@ -323,6 +330,11 @@ hr {
 	background-color: var(--dark);
 	background-image: linear-gradient(165deg, var(--neutral-7), var(--dark), var(--black)); }
 
+.fill-gradient {
+	color: var(--white);
+	background-color: var(--blue);
+	background-image: linear-gradient(135deg, #0099FF, #9933FF, #CC00FF, #ff3366); }
+
 .bg-fixed {
 	background-attachment: fixed;
 }
@@ -353,7 +365,18 @@ hr {
 .text-red { color: var(--red); }
 .text-yellow { color: var(--yellow); }
 .text-green { color: var(--green); }
-.text-blue { color: var(--blue); }
+.text-blue { color: var(--sk-blue); }
+.text-gradient{
+/*    background-image: linear-gradient(30deg, #F2416B, #D762FC, #0090F7);*/
+/*    background-image: linear-gradient(30deg, #0090F7, #D762FC, #F2416B);*/
+/*    background-image: linear-gradient(135deg, #0066ff, #D762FC, #ff0033);*/
+/*    background-image: linear-gradient(135deg, #0090F7, #0066ff, #CC00FF, #ff3366);*/
+/*    background-image: linear-gradient(135deg, #0099FF, #0066ff, #CC00FF, #ff3366);*/
+    background-image: linear-gradient(135deg, #0099FF, #9933FF, #CC00FF, #ff3366);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 
 
