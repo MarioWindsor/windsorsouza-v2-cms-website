@@ -137,22 +137,28 @@
 		box-shadow: 0 0 3px 1px rgba(0, 120, 255, 0.35),  0 0 9px 3px rgba(180, 50, 255, 0.25);
 	}
 
-	.header-section .navigation .link { line-height: 1; }
+	.header-section .navigation .link {
+		line-height: 1;
+		margin-left: var(--space-50);
+	}
 </style>
 <!-- Header Section -->
 <section id="header-section" class="header-section space-150-left-right space-50-top-bottom position-sticky" style="z-index: 9; top: 0; left: 0;">
-	<div class="menu radius-75 fill-light space-75">
+	<div class="menu radius-75 fill-light space-50">
 		<span class="logo" style="font-size: 0;">
-			<a class="inline" href="/" style="font-size: 0; width: calc(var(--space-100) * 5);">
+			<!-- <a class="inline" href="/" style="font-size: 0; width: calc(var(--space-100) * 5);">
 				<img class="block no-pointer" src="media/logo-full-black.png" alt="WindsorSouza Logo">
+			</a> -->
+			<a class="inline space-25-left" href="/" style="font-size: 0; width: calc(var(--space-100) * 3);">
+				<img class="block no-pointer" src="media/logo-min-black.png" alt="WindsorSouza Logo">
 			</a>
 		</span>
-		<span class="navigation hide-small hide-medium">
-			<a class="link p text-uppercase inline space-50" href="/">Projects (All)</a>
-			<a class="link p text-uppercase inline space-50" href="/">About</a>
-			<a class="link p text-uppercase inline space-50" href="/">Careers</a>
-			<a class="link p text-uppercase inline space-50" href="/">Services</a>
-			<a class="link p text-uppercase inline space-50 fill-gradient text-white radius-25" href="/" style="margin-left: var(--space-50);"><span class="material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;`">perm_phone_msg</span> +91 89716 83598</a>
+		<span class="navigation hide-small">
+			<a class="link p text-uppercase inline space-25 space-50-left-right radius-25" href="/">Projects <span class="material-symbols-rounded inline-middle" style="font-size: var(--h6); line-height: 1;">unfold_more</span></a>
+			<a class="link p text-uppercase inline space-25" href="/">About</a>
+			<a class="link p text-uppercase inline space-25" href="/">Careers</a>
+			<a class="link p text-uppercase inline space-25" href="/">Services <span class="material-symbols-rounded inline-middle" style="font-size: var(--h6); line-height: 1;">unfold_more</span></a>
+			<a class="link p text-uppercase inline space-25 space-50-left-right fill-gradient text-white radius-25" href="/"><span class="material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">perm_phone_msg</span> +91 89716 83598</a>
 		</span>
 	</div>
 </section>
@@ -261,7 +267,10 @@
 	.project .info .tags .tag:hover { filter: invert(100%); }
 
 	.project .info .cta {
-
+		line-height: 2;
+		font-size: calc(var(--fem) * 3.5);
+		position: absolute;
+		margin-top: calc(var(--fem) * 3.5);
 	}
 	
 	.project .mockup {
@@ -283,6 +292,7 @@
 			flex-direction: row;
 		}
 		.project .info {
+			margin-top: calc(var(--space-100) * 3);
 			width: 50%;
 		}
 		.project .mockup {
@@ -291,6 +301,27 @@
 	}
 	@media( min-width: 1480px ) {}
 </style>
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/kaatikaadu-bg.png');">
+		<div class="info space-150 float-left">
+			<div class="client">KaatiKaadu</div>
+			<div class="title strong font-h">Logo &amp; Website for Jungle Camping Experience Brand</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">Merchandise</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/kaatikaadu-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
 <!-- Each Project -->
 <div class="row space-100-left-right space-50-top-bottom">
 	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/velvesto-bg.svg');">
@@ -306,7 +337,7 @@
 				<div class="tag inline">Product Display</div>
 			</div>
 			<a class="cta inline" href="/">
-				<span>Learn More</span>
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
 			</a>
 		</div>
 		<div class="mockup space-150 float-right">
@@ -331,7 +362,7 @@
 				<div class="tag inline">Signage</div>
 			</div>
 			<a class="cta inline" href="/">
-				<span>Learn More</span>
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
 			</a>
 		</div>
 		<div class="mockup space-150 float-right">
@@ -355,7 +386,7 @@
 				<div class="tag inline">Brand Collateral</div>
 			</div>
 			<a class="cta inline" href="/">
-				<span>Learn More</span>
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
 			</a>
 		</div>
 		<div class="mockup space-150 float-right">
@@ -379,7 +410,7 @@
 				<div class="tag inline">Store Branding</div>
 			</div>
 			<a class="cta inline" href="/">
-				<span>Learn More</span>
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
 			</a>
 		</div>
 		<div class="mockup space-150 float-right">
@@ -401,7 +432,7 @@
 				<div class="tag inline">Brand Collateral</div>
 			</div>
 			<a class="cta inline" href="/">
-				<span>Learn More</span>
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
 			</a>
 		</div>
 		<div class="mockup space-150 float-right">
@@ -424,7 +455,7 @@
 				<div class="tag inline">Brand Collateral</div>
 			</div>
 			<a class="cta inline" href="/">
-				<span>Learn More</span>
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
 			</a>
 		</div>
 		<div class="mockup space-150 float-right">
