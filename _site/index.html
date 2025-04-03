@@ -119,50 +119,229 @@
 
 <!--  ★  MARKUP GOES HERE  ★  -->
 
-<div id="page-wrapper" class="fill-dark-gradient bg-fixed"><!-- Page Wrapper -->
+<div id="page-wrapper" class="fill-black"><!-- Page Wrapper -->
 
 
 
 	<!-- Header & Navigation -->
-	<style>
-	.header-section {}
-	.header-section .menu {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+	<style type="text/css">
 
-		backdrop-filter: blur(7px);
-		-webkit-backdrop-filter: blur(7px);
-		background: rgba(255, 255, 255, 0.666);
-		box-shadow: 0 0 3px 1px rgba(0, 120, 255, 0.35),  0 0 9px 3px rgba(180, 50, 255, 0.25);
-	}
+.menu-section {
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	pointer-events: none;
+}
 
-	.header-section .navigation .link {
-		line-height: 1;
-		margin-left: var(--space-25);
-	}
+.menu-section .menu-toggle {
+	position: relative;
+	z-index: 3;
+	display: inline-block;
+	cursor: pointer;
+	pointer-events: all;
+	padding: var(--space-25);
+	box-shadow: 0 0 0 2px var(--white), inset 0 0 3px 0px var(--dark);
+	border-radius: var(--space-50);
+	font-size: 0;
+	width: calc(var(--space-100) * 2.75);
+	height: var(--space-100);
+	overflow: hidden;
+	transform-origin: top left;
+	transform: scale(1.333);
+	transition: .4s ease-out;
+	filter: saturate(0%);
+	opacity: 0.666;
+	transition: .4s ease-out;
+}
+
+.menu-section .menu-toggle:hover,
+.menu-section .menu-toggle:focus {
+	filter: saturate(100%);
+	opacity: 1;
+}
+
+.menu-section .menu-toggle * { pointer-events: none; }
+
+.menu-section .menu-toggle .circle {
+	position: absolute;
+	display: inline-block;
+	top: var(--space-25);
+	left: var(--space-25);
+	right: auto;
+	text-indent: -9999px;
+	width: var(--space-50);
+	height: var(--space-50);
+	line-height: var(--space-50);
+	border-radius: var(--space-50);
+	background-color: var(--white);
+	transition: .4s ease-out;
+}
+
+.menu-section .menu-toggle .circle::before,
+.menu-section .menu-toggle .circle::after {
+	display: block;
+	font-size: calc(var(--space-100) * 0.5);
+	color: var(--white);
+	text-indent: 0;
+	text-transform: uppercase;
+	width: var(--space-150);
+/*	height: var(--space-50);*/
+	position: absolute;
+	top: 50%;
+	line-height: var(--space-100);
+	transition: .4s ease-out;
+}
+
+.menu-section .menu-toggle .circle::before {
+	content: "Close";
+	right: 0;
+	transform: translate(-48%, -43%);
+	opacity: 0;
+}
+.menu-section .menu-toggle .circle::after {
+	content: "Menu";
+	left: 0;
+	transform: translate(48%, -43%);
+	opacity: 1;
+}
+
+.menu-section .menu-checkbox:checked ~ .menu-toggle {
+	filter: hue-rotate(-45deg) saturate(100%);
+	opacity: 1;
+}
+
+.menu-section .menu-checkbox:checked ~ .menu-toggle .circle {
+	left: var(--space-200);
+}
+
+.menu-section .menu-checkbox:checked ~ .menu-toggle .circle::before { opacity: 1; }
+.menu-section .menu-checkbox:checked ~ .menu-toggle .circle::after { opacity: 0; }
+
+.menu-section .menu {
+	pointer-events: all;
+	position: absolute;
+	z-index: 2;
+	left: var(--space-150);
+	bottom: var(--space-200);
+}
+
+.menu-section .menu::before {
+	content: '';
+	pointer-events: none;
+	display: block;
+	width: 200vw;
+	height: 200vh;
+	position: absolute;
+	z-index: -1;
+	bottom: 0;
+	left: 0;
+	transform: translate(-200%, 200%);
+	background-image: radial-gradient(circle at center, rgba(21, 0, 26, 0.85) 35%, rgba(21, 0, 26, 0) 85%);
+	transition: 0.85s ease-out;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+}
+
+.menu-section .menu-checkbox:checked ~ .menu::before {
+	transform: translate(-50%, 50%);
+}
+
+.menu-section .menu ul {
+	list-style-type: "\2726"
+}
+.menu-section .menu ul li {
+	font-size: calc(var(--space-100) * 1.5);
+	text-indent: -500px;
+	transition: .4s ease-out;
+	text-transform: uppercase;
+	line-height: 1;
+	margin-bottom: var(--space-50);
+}
+
+.menu-section .menu ul li::marker {
+	content: "\2726";
+	margin-left: -5em;
+}
+
+.menu-section .menu a {
+	display: inline-block;
+	cursor: pointer;
+	line-height: 1;
+	background-image: linear-gradient(135deg, var(--white), var(--white), var(--white));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: .3s ease-out;
+}
+
+.menu-section .menu a:hover {
+	background-image: linear-gradient(135deg, var(--blue-light), var(--violet), var(--red-light));
+	filter: saturate(150%) hue-rotate(45deg);
+}
+
+.menu-section .menu ul li:nth-child(1) {
+	transition-delay: .1s
+}
+
+.menu-section .menu ul li:nth-child(2) {
+	transition-delay: .2s
+}
+
+.menu-section .menu ul li:nth-child(3) {
+	transition-delay: .3s
+}
+
+.menu-section .menu ul li:nth-child(4) {
+	transition-delay: .4s
+}
+
+.menu-section .menu ul li:nth-child(5) {
+	transition-delay: .5s
+}
+
+.menu-section .menu ul li:nth-child(6) {
+	transition-delay: .6s
+}
+
+.menu-section .menu ul li:nth-child(7) {
+	transition-delay: .7s
+}
+
+.menu-section .menu ul li:nth-child(8) {
+	transition-delay: .8s
+}
+
+.menu-section .menu-checkbox:checked ~ .menu ul li {
+	text-indent: var(--space-50);
+}
 </style>
-<!-- Header Section -->
-<section id="header-section" class="header-section space-150-left-right space-50-top-bottom position-sticky" style="z-index: 9; top: 0; left: 0;">
-	<div class="menu radius-50 fill-light">
-		<span class="logo space-25-top-bottom space-50-left-right" style="font-size: 0;">
-			<a class="inline space-25-left" href="/" style="font-size: 0; width: calc(var(--space-100) * 4);">
-				<img class="block no-pointer" src="media/logo-full-black.png" alt="WindsorSouza Logo">
-			</a>
-			<!-- <a class="inline space-25-left" href="/" style="font-size: 0; width: calc(var(--space-100) * 3);">
-				<img class="block no-pointer" src="media/logo-min-black.png" alt="WindsorSouza Logo">
-			</a> -->
-		</span>
-		<span class="navigation hide-small space-50">
-			<a class="link p text-uppercase inline space-25" href="/">Projects<span class="material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">keyboard_arrow_down</span></a>
-			<a class="link p text-uppercase inline space-25" href="/">About</a>
-			<a class="link p text-uppercase inline space-25" href="/">Careers</a>
-			<a class="link p text-uppercase inline space-25" href="/">Services<span class="material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">keyboard_arrow_down</span></a>
-			<a class="link p text-uppercase inline space-25 space-50-left-right fill-gradient text-white radius-25" href="/"><span class="material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">perm_phone_msg</span> +91 89716 83598</a>
-		</span>
-	</div>
+
+<!-- Menu Section -->
+<section id="menu-section" class="menu-section space-200">
+	<input type="checkbox" id="menu-checkbox" class="menu-checkbox visuallyhidden">
+	<label class="menu-toggle text-white fill-gradient" tabindex="0" for="menu-checkbox">
+		<span class="circle">Menu</span>
+	</label>
+	<nav class="menu text-white">
+		<ul>
+			<li><a class="strong" href="" tabindex="0">Home</a></li>
+			<li><a class="strong" href="" tabindex="0">Services</a></li>
+			<li><a class="strong" href="" tabindex="0">Portfolio</a></li>
+			<li><a class="strong" href="" tabindex="0">About</a></li>
+			<li><a class="strong" href="" tabindex="0">Brands</a></li>
+			<li><a class="strong" href="" tabindex="0">Contact</a></li>
+		</ul>
+	</nav>
 </section>
-<!-- END: Header Section -->
+<!-- END : Menu Section -->
+
+
+
 
 
 
@@ -175,50 +354,97 @@
 
 
 
+<style>
 
+	@media( max-width: 639px )  {
+		.long-word {
+			word-break: break-all;
+			hyphens: manual;
+		}
+	}
+
+	.intro-section {
+		position: relative;
+		overflow: hidden;
+/*		min-height: 100vh;*/
+	}
+
+	.intro-section .intro {
+		position: relative;
+		z-index: 2;
+	}
+
+	.intro-section .intro {
+		position: relative;
+		z-index: 2;
+	}
+
+	.intro-section .intro .logo img {
+		opacity: 0.15;
+		transition: .3s ease-out;
+	}
+	.intro-section .intro .logo img:hover,
+	.intro-section .intro .logo img:focus {
+		opacity: 1;
+	}
+
+	.intro-section .intro .headline .h1 {
+		font-size: var(--flex-h3);
+		line-height: 0.85;
+	}
+
+</style>
 <!-- Intro Section -->
-<section id="intro-section" class="hidden intro-section space-150-top-bottom">
-	<div class="container">
-		<div class="row">
-			<div class="columns small-12">
-				<div class="h3">Typography:</div>
-				<div class="h1 strong">Lorem ipsum, dolor sit amet consectetur.</div>
-				<div class="h2 strong">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="h3 strong">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="h4 strong">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="h5 strong">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="h6">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="p">Lorem ipsum dolor, sit amet consectetur,.</div>
-				<div class="label">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="small space-25-bottom">Lorem, ipsum dolor sit amet consectetur.</div>
-				<a class="button fill-blue" href="https://google.com">Search</a>
+<section id="intro-section" class="intro-section">
+	<div class="row galaxy-bg">
+		<div class="nova"></div>
+		<div class="nova"></div>
+	</div>
+	<div class="intro">
+		<div class="row logo space-200 text-right">
+			<div class="columns small-6 medium-4 large-3">
+				<img src="media/logo-full-white.png" alt="">
+			</div>
+		</div>
+		<div class="row headline text-right">
+			<div class="columns small-12 space-250-bottom">
+				<!-- <div class="h1 text-white text-uppercase strong">You Do Your Thing — Leave the <span class="text-gradient js-typing-text"></span> to us</div> -->
+				<div class="h1 text-white text-uppercase strong">You Do Your Thing — We will handle your <br><span class="text-gradient js-typing-text"></span></div>
 			</div>
 		</div>
 	</div>
 </section>
 <!-- END: Intro Section -->
+<script>
+	var typing=new Typed(".js-typing-text", {
+		strings: ["", "Brand Strategy", "Logo Design", "Website", "UI/UX Design", "E-commerce", "Print Design", "Brand Collateral", "Package Design", "Merchandise", "Film &amp; Photography", "Social Media Marketing", "Digital Advertising", "Search Engine Optimisation"],
+		typeSpeed: 200,
+		backSpeed: 100,
+		loop: true,
+	});
+</script>
 
 
 
 
 
 <!-- Project Section -->
-<section id="project-section" class="project-section fill-dark-gradient bg-fixed space-50-top-bottom">
+<section id="project-section" class="project-section space-50-top-bottom">
 	<!-- <div class="container"> -->
 		<style>
 	:root {
 		--fluid-box-width: calc(var(--view-width) - var(--space-200));
 		--fluid-box-height: calc(var(--view-height) - var(--space-200));
-		--fem: calc(var(--fluid-box-width) * 0.01);
+		--fem: calc((var(--fluid-box-width) * 1) / 100);
 	}
 	@media( min-width: 640px )  {
 		:root {
-			--fem: calc(var(--fluid-box-width) * 0.0075);
+			--fem: calc((var(--fluid-box-width) * 0.75) / 100);
 		}
 	}
 	@media( min-width: 1040px ) {
 		:root {
-			--fem: calc(var(--fluid-box-width) * 0.005);
+			--fem: calc((var(--fluid-box-width) * 0.5) / 100);
 		}
 	}
 	@media( min-width: 1480px ) {}
@@ -492,6 +718,75 @@
 	</div>
 </div>
 <!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/slipstream-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">SlipStream Performance</div>
+			<div class="title strong font-h">Study Now Pay Later: Easy Education Loans with PWA solutions</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">UX Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">API Integration</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/slipstream-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-light radius-100 img-cover" style="background-image: url('media/projects/umber-bg.png');">
+		<div class="info space-150 float-left">
+			<div class="client">Umber Infusion</div>
+			<div class="title strong font-h">Study Now Pay Later: Easy Education Loans with PWA solutions</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">UX Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">API Integration</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/umber-mockup.svg" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
+<!-- Each Project -->
+<div class="row space-100-left-right space-50-top-bottom">
+	<div class="project fill-dark radius-100 img-cover" style="background-image: url('media/projects/fishandflow-bg.svg');">
+		<div class="info space-150 float-left">
+			<div class="client">Fish&amp;Flow</div>
+			<div class="title strong font-h">Study Now Pay Later: Easy Education Loans with PWA solutions</div>
+			<div class="tags">
+				<div class="tag inline">Logo Design</div>
+				<div class="tag inline">UX Design</div>
+				<div class="tag inline">Website</div>
+				<div class="tag inline">API Integration</div>
+				<div class="tag inline">Brand Collateral</div>
+			</div>
+			<a class="cta inline" href="/">
+				<span>Learn More <span class="material-symbols-rounded inline-top" style="font-size: calc(var(--fem) * 5); line-height: 1.275;">arrow_right_alt</span></span>
+			</a>
+		</div>
+		<div class="mockup space-150 float-right">
+			<img class="block" src="media/projects/fishandflow-mockup.png" alt="">
+		</div>
+	</div>
+</div>
+<!-- End: Each Project -->
 	<!-- </div> -->
 </section>
 <!-- END: Project Section -->
@@ -529,18 +824,17 @@
 <!-- Footer Menu Section -->
 <section id="footer-menu-section" class="footer-menu-section space-200-top-bottom">
 	<div class="container">
-		<div class="row space-150-bottom">
+		<!-- <div class="row space-150-bottom">
 			<div class="columns small-10 medium-6 large-5">
 				<div class="logo space-50-bottom">
 					<img src="media/logo-full-white.png" alt="">
 				</div>	
 			</div>
 			<div class="columns small-12 large-6 large-offset-1">
-				<!-- <div class="title h2 strong text-gradient font-h">Digital <span class="long-word">Transformation</span> and Growth Marketing Experts!</div> -->
 				<div class="title h3 strong text-gradient font-h">Experts in Digital <span class="long-word">Transformation</span> and Growth Marketing!</div>
 				<div class="description p space-50-top">We are a Branding, Marketing and Advertising Agency, that leverages data-driven decision making to deliver innovative solutions for your business. Our expertise spans across branding, web development, eCommerce, SEO, digital advertising, social media, and video production. We help businesses of all sizes achieve their digital goals by combining creative designs with cutting-edge technology.</div>
 			</div>
-		</div>
+		</div> -->
 		<hr class="fill-gradient">
 		<div class="row space-150-top">
 			<div class="columns small-12 medium-6 large-4 space-150-bottom">

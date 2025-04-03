@@ -2,35 +2,82 @@
 
 
 
+<style>
 
+	@media( max-width: 639px )  {
+		.long-word {
+			word-break: break-all;
+			hyphens: manual;
+		}
+	}
+
+	.intro-section {
+		position: relative;
+		overflow: hidden;
+/*		min-height: 100vh;*/
+	}
+
+	.intro-section .intro {
+		position: relative;
+		z-index: 2;
+	}
+
+	.intro-section .intro {
+		position: relative;
+		z-index: 2;
+	}
+
+	.intro-section .intro .logo img {
+		opacity: 0.15;
+		transition: .3s ease-out;
+	}
+	.intro-section .intro .logo img:hover,
+	.intro-section .intro .logo img:focus {
+		opacity: 1;
+	}
+
+	.intro-section .intro .headline .h1 {
+		font-size: var(--flex-h3);
+		line-height: 0.85;
+	}
+
+</style>
 <!-- Intro Section -->
-<section id="intro-section" class="hidden intro-section space-150-top-bottom">
-	<div class="container">
-		<div class="row">
-			<div class="columns small-12">
-				<div class="h3">Typography:</div>
-				<div class="h1 strong">Lorem ipsum, dolor sit amet consectetur.</div>
-				<div class="h2 strong">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="h3 strong">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="h4 strong">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="h5 strong">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="h6">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="p">Lorem ipsum dolor, sit amet consectetur,.</div>
-				<div class="label">Lorem ipsum dolor sit amet consectetur.</div>
-				<div class="small space-25-bottom">Lorem, ipsum dolor sit amet consectetur.</div>
-				<a class="button fill-blue" href="https://google.com">Search</a>
+<section id="intro-section" class="intro-section">
+	<div class="row galaxy-bg">
+		<div class="nova"></div>
+		<div class="nova"></div>
+	</div>
+	<div class="intro">
+		<div class="row logo space-200 text-right">
+			<div class="columns small-6 medium-4 large-3">
+				<img src="media/logo-full-white.png" alt="">
+			</div>
+		</div>
+		<div class="row headline text-right">
+			<div class="columns small-12 space-250-bottom">
+				<!-- <div class="h1 text-white text-uppercase strong">You Do Your Thing — Leave the <span class="text-gradient js-typing-text"></span> to us</div> -->
+				<div class="h1 text-white text-uppercase strong">You Do Your Thing — We will handle your <br><span class="text-gradient js-typing-text"></span></div>
 			</div>
 		</div>
 	</div>
 </section>
 <!-- END: Intro Section -->
+<script>
+	var typing=new Typed(".js-typing-text", {
+		strings: ["", "Brand Strategy", "Logo Design", "Website", "UI/UX Design", "E-commerce", "Print Design", "Brand Collateral", "Package Design", "Merchandise", "Film &amp; Photography", "Social Media Marketing", "Digital Advertising", "Search Engine Optimisation"],
+		typeSpeed: 200,
+		backSpeed: 100,
+		loop: true,
+	});
+</script>
 
 
 
 
 
 <!-- Project Section -->
-<section id="project-section" class="project-section fill-dark-gradient bg-fixed space-50-top-bottom">
+<section id="project-section" class="project-section space-50-top-bottom">
 	<!-- <div class="container"> -->
 		{% include 'parts/project-card.liquid' %}
 	<!-- </div> -->
