@@ -35,24 +35,39 @@
 	--view-width: 100vw;
 	--view-height: 100vh;
 
-	--white: rgb(255, 255, 255);
-	--light: rgb(249, 216, 255);
+	---white: 255, 255, 255;
+	--white: rgb(var(---white));
+	---light: 249, 216, 255;
+	--light: rgb(var(---light));
 
-	--violet-light-light: rgb(240, 158, 255);
-	--violet-light: rgb(226, 80, 255);
-	--violet: rgb(208, 0, 255);
-	--violet-dark: rgb(160, 10, 192);
-	--violet-dark-dark: rgb(110, 18, 128);
+	---violet-light-light: 240, 158, 255;
+	--violet-light-light: rgb(var(---violet-light-light));
+	---violet-light: 226, 80, 255;
+	--violet-light: rgb(var(---violet-light));
+	---violet: 208, 0, 255;
+	--violet: rgb(var(---violet));
+	---violet-dark: 160, 10, 192;
+	--violet-dark: rgb(var(---violet-dark));
+	---violet-dark-dark: 110, 18, 128;
+	--violet-dark-dark: rgb(var(---violet-dark-dark));
 
-	--dark: rgb(60, 26, 66);
-	--black: rgb(21, 0, 26);
+	---dark: 60, 26, 66;
+	--dark: rgb(var(---dark));
+	---black: 21, 0, 26;
+	--black: rgb(var(---black));
 
-	--blue-light: rgb(77, 151, 255);
-	--blue: rgb(0, 106, 255);
-	--green: rgb(0, 255, 85);
-	--red-light: rgb(255, 91, 77);
-	--red: rgb(255, 21, 0);
-	--yellow: rgb(255, 255, 0);
+	---blue-light: 77, 151, 255;
+	--blue-light: rgb(var(---blue-light));
+	---blue: 0, 106, 255;
+	--blue: rgb(var(---blue));
+	---green: 0, 255, 85;
+	--green: rgb(var(---green));
+	---red-light: 255, 91, 77;
+	--red-light: rgb(var(---red-light));
+	---red: 255, 21, 0;
+	--red: rgb(var(---red));
+	---yellow: 255, 255, 0;
+	--yellow: rgb(var(---yellow));
 
 	--container-width: 300px;
 	--card: var(--container-width);

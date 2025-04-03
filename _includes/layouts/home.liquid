@@ -13,8 +13,7 @@
 
 	.intro-section {
 		position: relative;
-		overflow: hidden;
-/*		min-height: 100vh;*/
+/*		overflow: hidden;*/
 	}
 
 	.intro-section .intro {
@@ -41,15 +40,186 @@
 		line-height: 0.85;
 	}
 
+	.intro-section .galaxy-bg {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	.intro-section .galaxy-bg .nova {
+		position: absolute;
+		width: 70%;
+		height: 60%;
+		z-index: 1;
+	}
+
+	.intro-section .galaxy-bg .nova:nth-child(1) {
+		top: 50%;
+		left: 25%;
+		background: radial-gradient(rgba(var(---blue-light),0.35) 0%, rgba(var(---blue-light),0) 70%);
+		transform: translate(-50%, -50%) rotate(-15deg);
+	}
+
+	.intro-section .galaxy-bg .nova:nth-child(2) {
+		bottom: 25%;
+		right: 25%;
+		background: radial-gradient(rgba(var(---violet),0.35) 0%, rgba(var(---violet),0) 70%);
+		transform: translate(50%, 50%) rotate(30deg);
+	}
+
+	.intro-section .galaxy-bg .circles {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+		top: 25%;
+		left:75%;
+		transform: translate(-50%, -50%);
+		filter: blur(2px);
+		opacity: 0.5;
+	}
+
+	.intro-section .galaxy-bg .circles svg {
+		position: absolute;
+		z-index: 1;
+		transform: translate(-50%, -50%);
+		transform-origin: center center;
+	}
+
+	.intro-section .galaxy-bg .circles svg:nth-child(1) {
+		top: 33%;
+		left: 33%;
+		animation-name: spinnyspin;
+		animation-duration: 10s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: forwards;
+		animation-direction: normal;
+		animation-timing-function: linear;
+	}
+	.intro-section .galaxy-bg .circles svg:nth-child(2) {
+		top: 25%;
+		left: 50%;
+		animation-name: spinnyspin;
+		animation-duration: 20s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: forwards;
+		animation-direction: reverse;
+		animation-timing-function: linear;
+	}
+	.intro-section .galaxy-bg .circles svg:nth-child(3) {
+		top: 50%;
+		left: 25%;
+		animation-name: spinnyspin;
+		animation-duration: 15s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: forwards;
+		animation-direction: normal;
+		animation-timing-function: linear;
+	}
+
+	@keyframes spinnyspin {
+		from {
+			transform: translate(-50%, -50%) rotate(0deg);
+/*			transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg);*/
+		}
+		to {
+			transform: translate(-50%, -50%) rotate(359deg);
+/*			transform: translate(-50%, -50%) rotateX(359deg) rotateY(359deg) rotateZ(359deg);*/
+		}
+	}
+
+	@media( min-width: 640px )  {
+		.intro-section .galaxy-bg .circles {
+			filter: blur(3px);
+		}
+	}
+	@media( min-width: 1040px ) {
+		.intro-section .galaxy-bg .circles {
+			filter: blur(5px);
+		}
+	}
+	@media( min-width: 1480px ) {
+		.intro-section .galaxy-bg .circles {
+			filter: blur(7px);
+		}
+	}
 </style>
 <!-- Intro Section -->
 <section id="intro-section" class="intro-section">
 	<div class="row galaxy-bg">
 		<div class="nova"></div>
 		<div class="nova"></div>
+		<div class="circles">
+			<svg id="gradient-stroke-circle" data-name="gradient-stroke-circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 902 902">
+				<defs>
+					<style>
+						.gradient-stroke-circle {
+							fill: none;
+							stroke: url(#linear-gradient);
+							stroke-miterlimit: 10;
+							stroke-width: 2px;
+						}
+					</style>
+					<linearGradient id="linear-gradient" x1="0" y1="451" x2="902" y2="451" gradientUnits="userSpaceOnUse">
+						<stop offset="0" stop-color="#d000ff"/>
+						<stop offset=".2" stop-color="#00c8ff"/>
+						<stop offset=".45" stop-color="#0f5"/>
+						<stop offset=".65" stop-color="#ff0"/>
+						<stop offset=".8" stop-color="#ff004b"/>
+						<stop offset="1" stop-color="#d000ff"/>
+					</linearGradient>
+				</defs>
+				<circle class="gradient-stroke-circle" cx="451" cy="451" r="450"/>
+			</svg>
+			<svg id="gradient-stroke-zigzag" data-name="gradient-stroke-zigzag" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 932 932">
+				<defs>
+					<style>
+						.gradient-stroke-zigzag {
+							fill: none;
+							stroke: url(#linear-gradient);
+							stroke-miterlimit: 10;
+							stroke-width: 2px;
+						}
+					</style>
+					<linearGradient id="linear-gradient" x1="-66.74" y1="764.6" x2="865.26" y2="764.6" gradientTransform="translate(-298.6 865.26) rotate(-90)" gradientUnits="userSpaceOnUse">
+						<stop offset="0" stop-color="#d000ff"/>
+						<stop offset=".2" stop-color="#00c8ff"/>
+						<stop offset=".45" stop-color="#0f5"/>
+						<stop offset=".65" stop-color="#ff0"/>
+						<stop offset=".8" stop-color="#ff004b"/>
+						<stop offset="1" stop-color="#d000ff"/>
+					</linearGradient>
+				</defs>
+				<path class="gradient-stroke-zigzag" d="M466,1c61.01,0,113.45,41,166.5,63,55,22.81,120.85,31.75,162.3,73.2,41.45,41.45,50.39,107.3,73.2,162.3,22,53.06,63,105.49,63,166.5s-41,113.45-63,166.5c-22.81,55-31.75,120.85-73.2,162.3-41.45,41.45-107.3,50.39-162.3,73.2-53.06,22-105.49,63-166.5,63s-113.45-41-166.5-63c-55-22.81-120.85-31.75-162.3-73.2s-50.39-107.3-73.2-162.3C42,579.45,1,527.01,1,466s41-113.45,63-166.5c22.81-55,31.75-120.85,73.2-162.3,41.45-41.45,107.3-50.39,162.3-73.2C352.55,42,404.99,1,466,1Z"/>
+			</svg>
+			<svg id="gradient-stroke-ovalwave" data-name="gradient-stroke-ovalwave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 902 902.03">
+				<defs>
+					<style>
+						.gradient-stroke-ovalwave {
+							fill: none;
+							stroke: url(#linear-gradient);
+							stroke-miterlimit: 10;
+							stroke-width: 2px;
+						}
+					</style>
+					<linearGradient id="linear-gradient" x1="-298.62" y1="384.27" x2="603.41" y2="384.27" gradientTransform="translate(835.27 298.62) rotate(90)" gradientUnits="userSpaceOnUse">
+						<stop offset="0" stop-color="#d000ff"/>
+						<stop offset=".2" stop-color="#00c8ff"/>
+						<stop offset=".45" stop-color="#0f5"/>
+						<stop offset=".65" stop-color="#ff0"/>
+						<stop offset=".8" stop-color="#ff004b"/>
+						<stop offset="1" stop-color="#d000ff"/>
+					</linearGradient>
+				</defs>
+				<path class="gradient-stroke-ovalwave" d="M451,901.02c-62.13-.6-121.32-10.19-175.16-18.56-53.84-9.93-102.32-18.64-143.04-53.81-40.72-32.08-73.67-90.6-96.44-162.56C13.59,595.18,1,510.83,1,451.02c0-64.45,12.59-98.48,35.36-135.26,22.77-35.74,55.72-74.22,96.44-123.58,40.72-46.26,89.2-103.42,143.04-139.01C329.68,16.01,388.87.41,451,1.02c62.13.6,121.32,10.19,175.16,18.56,53.84,9.93,102.32,18.64,143.04,53.81,40.72,32.08,73.67,90.6,96.44,162.56,22.77,70.92,35.36,155.27,35.36,215.08,0,64.45-12.59,98.48-35.36,135.26-22.77,35.74-55.72,74.22-96.44,123.58-40.72,46.26-89.2,103.42-143.04,139.01-53.84,37.16-113.03,52.76-175.16,52.16Z"/>
+			</svg>
+		</div>
 	</div>
 	<div class="intro">
-		<div class="row logo space-200 text-right">
+		<div class="row logo space-150 text-right">
 			<div class="columns small-6 medium-4 large-3">
 				<img src="media/logo-full-white.png" alt="">
 			</div>
@@ -65,9 +235,30 @@
 <!-- END: Intro Section -->
 <script>
 	var typing=new Typed(".js-typing-text", {
-		strings: ["", "Brand Strategy", "Logo Design", "Website", "UI/UX Design", "E-commerce", "Print Design", "Brand Collateral", "Package Design", "Merchandise", "Film &amp; Photography", "Social Media Marketing", "Digital Advertising", "Search Engine Optimisation"],
-		typeSpeed: 200,
-		backSpeed: 100,
+		strings: [
+			"", 
+			"Brand Strategy",
+			"Logo Design",
+			"Website",
+			"Marketing",
+			"Package Design",
+			"Brochure",
+			"E-commerce",
+			"SEO",
+			"Print Design",
+			"App Design",
+			"Business Card",
+			"Merchandise",
+			"Brand Film",
+			"Photography",
+			"Event Coverage",
+			"Podcast",
+			"Social Media",
+			"AR Filters",
+			"And More..."
+		],
+		typeSpeed: 80,
+		backSpeed: 25,
 		loop: true,
 	});
 </script>

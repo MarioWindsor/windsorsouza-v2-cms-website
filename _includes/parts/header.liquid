@@ -100,8 +100,8 @@
 	pointer-events: all;
 	position: absolute;
 	z-index: 2;
-	left: var(--space-150);
-	bottom: var(--space-200);
+	left: var(--space-100);
+	bottom: var(--space-150);
 }
 
 .menu-section .menu::before {
@@ -129,12 +129,12 @@
 	list-style-type: "\2726"
 }
 .menu-section .menu ul li {
-	font-size: calc(var(--space-100) * 1.5);
+	font-size: calc(var(--space-100) * 1.375);
 	text-indent: -500px;
 	transition: .4s ease-out;
 	text-transform: uppercase;
 	line-height: 1;
-	margin-bottom: var(--space-50);
+	margin-bottom: var(--space-25);
 }
 
 .menu-section .menu ul li::marker {
@@ -156,6 +156,8 @@
 .menu-section .menu a:hover {
 	background-image: linear-gradient(135deg, var(--blue-light), var(--violet), var(--red-light));
 	filter: saturate(150%) hue-rotate(45deg);
+	transform: translateX(5px) scale(1.15);
+	transform-origin: left center;
 }
 
 .menu-section .menu ul li:nth-child(1) {
@@ -196,7 +198,7 @@
 </style>
 
 <!-- Menu Section -->
-<section id="menu-section" class="menu-section space-200">
+<section id="menu-section" class="menu-section space-150">
 	<input type="checkbox" id="menu-checkbox" class="menu-checkbox visuallyhidden">
 	<label class="menu-toggle text-white fill-gradient" tabindex="0" for="menu-checkbox">
 		<span class="circle">Menu</span>
